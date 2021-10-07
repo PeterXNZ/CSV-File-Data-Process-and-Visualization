@@ -1,0 +1,320 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta http-equiv="X-UA-Compatible" content="ie=edge">
+	<script src="chart.js"></script>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<title>My Chart.js Chart</title>
+</head>
+<body>
+
+
+
+	<input type="file" name="csvfile1" />
+	<input type="file" name="csvfile2" />
+	<input type="file" name="csvfile3" />
+	<input type="file" name="csvfile4" />
+	<input type="button" onclick="csv()" value="transfer"/>
+<!-- 
+<br /><br /><br />
+<div id="resTbl"></div> -->
+
+
+<div class="container">
+	<canvas id="line-chart" width="400" height="250"></canvas>
+</div>
+<div class="container">
+	<canvas id="line-chart2" width="400" height="250"></canvas>
+</div>
+<div class="container">
+	<canvas id="line-chart3" width="400" height="250"></canvas>
+</div>
+<div class="container">
+	<canvas id="line-chart4" width="400" height="250"></canvas>
+</div>
+
+<script src="./lib/jquery.js"></script>
+<script src="./lib/papaparse.js"></script>
+<script src="./lib/jschardet.js"></script>
+<!--[if lte IE 9]>
+	<script src="./lib/base64.js"></script>
+<![endif]-->
+
+<script src="csv2arr.js"></script>
+
+<script>
+	function csv(){
+		$("input[name=csvfile1]").csv2arr(function(arr1){
+			console.log( arr1 );
+		//something to do here
+		var tblStr = "<table border='1'>";
+		$.each( arr1, function(i, line){
+			tblStr += "<tr>";
+			$.each( line, function(i, cell){
+				tblStr += "<td>"+cell+"</td>";
+			});
+			tblStr += "</tr>";
+		});
+		$("#resTbl").html( tblStr );
+		new Chart(document.getElementById("line-chart"), {
+			type: 'line',
+			data: {
+				labels: arr1[0],
+				datasets: [{ 
+					data: arr1[1],
+					label: "dark-cal",
+					borderColor: "#3e95cd",
+					fill: false
+				}, { 
+					data: arr1[2],
+					label: "light-cal",
+					borderColor: "#8e5ea2",
+					fill: false
+				}, { 
+					data: arr1[3],
+					label: "dark-0",
+					borderColor: "#90EE90",
+					fill: false
+				}, { 
+					data: arr1[4],
+					label: "light-0",
+					borderColor: "#3cba9f",
+					fill: false
+				}, { 
+					data: arr1[5],
+					label: "dark-1",
+					borderColor: "#68228B",
+					fill: false
+				}, { 
+					data: arr1[6],
+					label: "light-1",
+					borderColor: "#B8860B",
+					fill: false
+				}, { 
+					data: arr1[7],
+					label: "dark-2",
+					borderColor: "#A52A2A",
+					fill: false
+				}, { 
+					data: arr1[8],
+					label: "light-2",
+					borderColor: "#0000FF",
+					fill: false
+				}
+				]
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'linechart1'
+				}
+			}
+		});
+		$("input[name=csvfile2]").csv2arr(function(arr2){
+			console.log( arr2 );
+		//something to do here
+		var tblStr = "<table border='1'>";
+		$.each( arr2, function(i, line){
+			tblStr += "<tr>";
+			$.each( line, function(i, cell){
+				tblStr += "<td>"+cell+"</td>";
+			});
+			tblStr += "</tr>";
+		});
+		$("#resTbl").html( tblStr );
+		new Chart(document.getElementById("line-chart2"), {
+			type: 'line',
+			data: {
+				labels: arr2[0],
+				datasets: [{ 
+					data: arr2[1],
+					label: "dark-cal",
+					borderColor: "#3e95cd",
+					fill: false
+				}, { 
+					data: arr2[2],
+					label: "light-cal",
+					borderColor: "#8e5ea2",
+					fill: false
+				}, { 
+					data: arr2[3],
+					label: "dark-0",
+					borderColor: "#90EE90",
+					fill: false
+				}, { 
+					data: arr2[4],
+					label: "light-0",
+					borderColor: "#3cba9f",
+					fill: false
+				}, { 
+					data: arr2[5],
+					label: "dark-1",
+					borderColor: "#68228B",
+					fill: false
+				}, { 
+					data: arr2[6],
+					label: "light-1",
+					borderColor: "#B8860B",
+					fill: false
+				}, { 
+					data: arr2[7],
+					label: "dark-2",
+					borderColor: "#A52A2A",
+					fill: false
+				}, { 
+					data: arr2[8],
+					label: "light-2",
+					borderColor: "#0000FF",
+					fill: false
+				}
+				]
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'linechart2'
+				}
+			}
+		});
+		$("input[name=csvfile3]").csv2arr(function(arr3){
+			console.log( arr3 );
+		//something to do here
+		var tblStr = "<table border='1'>";
+		$.each( arr3, function(i, line){
+			tblStr += "<tr>";
+			$.each( line, function(i, cell){
+				tblStr += "<td>"+cell+"</td>";
+			});
+			tblStr += "</tr>";
+		});
+		$("#resTbl").html( tblStr );
+		new Chart(document.getElementById("line-chart3"), {
+			type: 'line',
+			data: {
+				labels: arr3[0],
+				datasets: [{ 
+					data: arr3[1],
+					label: "dark-cal",
+					borderColor: "#3e95cd",
+					fill: false
+				}, { 
+					data: arr3[2],
+					label: "light-cal",
+					borderColor: "#8e5ea2",
+					fill: false
+				}, { 
+					data: arr3[3],
+					label: "dark-0",
+					borderColor: "#90EE90",
+					fill: false
+				}, { 
+					data: arr3[4],
+					label: "light-0",
+					borderColor: "#3cba9f",
+					fill: false
+				}, { 
+					data: arr3[5],
+					label: "dark-1",
+					borderColor: "#68228B",
+					fill: false
+				}, { 
+					data: arr3[6],
+					label: "light-1",
+					borderColor: "#B8860B",
+					fill: false
+				}, { 
+					data: arr3[7],
+					label: "dark-2",
+					borderColor: "#A52A2A",
+					fill: false
+				}, { 
+					data: arr3[8],
+					label: "light-2",
+					borderColor: "#0000FF",
+					fill: false
+				}
+				]
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'linechart3'
+				}
+			}
+		});
+		$("input[name=csvfile4]").csv2arr(function(arr4){
+			console.log( arr4 );
+		//something to do here
+		var tblStr = "<table border='1'>";
+		$.each( arr4, function(i, line){
+			tblStr += "<tr>";
+			$.each( line, function(i, cell){
+				tblStr += "<td>"+cell+"</td>";
+			});
+			tblStr += "</tr>";
+		});
+		$("#resTbl").html( tblStr );
+		new Chart(document.getElementById("line-chart4"), {
+			type: 'line',
+			data: {
+				labels: arr4[0],
+				datasets: [{ 
+					data: arr4[1],
+					label: "dark-cal",
+					borderColor: "#3e95cd",
+					fill: false
+				}, { 
+					data: arr4[2],
+					label: "light-cal",
+					borderColor: "#8e5ea2",
+					fill: false
+				}, { 
+					data: arr4[3],
+					label: "dark-0",
+					borderColor: "#90EE90",
+					fill: false
+				}, { 
+					data: arr4[4],
+					label: "light-0",
+					borderColor: "#3cba9f",
+					fill: false
+				}, { 
+					data: arr4[5],
+					label: "dark-1",
+					borderColor: "#68228B",
+					fill: false
+				}, { 
+					data: arr4[6],
+					label: "light-1",
+					borderColor: "#B8860B",
+					fill: false
+				}, { 
+					data: arr4[7],
+					label: "dark-2",
+					borderColor: "#A52A2A",
+					fill: false
+				}, { 
+					data: arr4[8],
+					label: "light-2",
+					borderColor: "#0000FF",
+					fill: false
+				}
+				]
+			},
+			options: {
+				title: {
+					display: true,
+					text: 'linechart4'
+				}
+			}
+		});
+	});
+	});
+	});
+});
+}
+</script>
+</body>
+</html>
