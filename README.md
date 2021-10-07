@@ -3,7 +3,7 @@ This project is to process and visualize the CSV data file.It can process the da
 
 
 
-Process: You should process CSV file in the order of:combine.py, Preprocess.py, rename.py, rename2.py,ff.py, average.py.
+Process: You should process CSV file in the order of:combine.py, Preprocess.py, rename.py, rename2.py,ff.py, average.py. PS: rename.py and rename2.py can name the file with the barrel timestamp.
 
 
 Visualization: Open demo.html file with a browser, and choose the processed file, then click transfer. Finally, you will get the graph of the csv file data.
